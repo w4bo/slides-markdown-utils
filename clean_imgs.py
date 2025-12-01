@@ -2,9 +2,9 @@ import os
 import re
 import shutil
 
-markdown_folder = ".."
-image_folder = "../img/"             # Path to your img directory
-removed_folder = "../removed-img/"   # Folder to move unused images into
+markdown_folder = "."
+image_folder = "./img/"             # Path to your img directory
+removed_folder = "./removed-img/"   # Folder to move unused images into
 
 # Allowed image file extensions (lowercase)
 image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff"}
