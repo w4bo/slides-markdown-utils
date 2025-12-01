@@ -1,0 +1,103 @@
+/*-- scss:defaults --*/
+
+$presentation-font-size-root: 20px;
+$presentation-h1-font-size: 1.9em;
+$presentation-h2-font-size: 1.8em;
+$presentation-h3-font-size: 1.7em;
+$presentation-h4-font-size: 1.6em;
+// $presentation-slide-text-align: center;
+// $presentation-title-slide-text-align: center; // center;
+
+/*-- scss:rules --*/
+
+.title-icon {
+    width: 50px !important;
+    margin-bottom: -10px !important;
+}
+
+.video-js {
+    background-color: #fff; 
+}
+
+strong { 
+    color: #E4572E;
+}
+
+em { 
+    color: #3944BC;
+}
+
+img {
+    max-height: 350px !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    // border: 1px solid #555;
+    box-shadow: 2px 2px 2px 2px lightgray !important;
+}
+
+.caption {
+    text-align: center !important;
+    font-size: 0.6em !important;
+    font-style: italic !important;
+}
+
+figcaption {
+    text-align: center !important;
+    font-size: 0.6em !important;
+    font-style: italic !important;
+}
+
+.dataframe {
+    font-size: 0.65em;
+}
+
+.center-img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-height: 650px !important
+}
+
+.title {
+    color: #29335C !important;
+}
+
+.h1 {
+    color: #29335C !important;
+}
+
+.h2 {
+    color: #29335C !important;
+}
+
+.reveal ul {
+    margin-left: 45px !important;
+}
+
+.reveal ul ul {
+    margin-left: 25px !important;
+}
+
+.reveal ol {
+    margin-left: 45px !important;
+}
+
+.reveal ol ol {
+    margin-left: 25px !important;
+}
+
+.subtitle {
+    font-style: italic !important;
+    text-align: center !important;
+    color: #669BBC !important;
+}
+
+.author {
+    text-align: center !important;
+}
+
+.date {
+    font-size: 0.75em !important;
+    text-align: center !important;
+}
