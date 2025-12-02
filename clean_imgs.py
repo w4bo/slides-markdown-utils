@@ -7,7 +7,7 @@ image_folder = "./img/"             # Path to your img directory
 removed_folder = "./removed-img/"   # Folder to move unused images into
 
 # Allowed image file extensions (lowercase)
-image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff"}
+image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff", ".pdf"}
 
 # Ensure removed/ directory exists
 os.makedirs(removed_folder, exist_ok=True)
@@ -24,8 +24,9 @@ for root, _, files in os.walk(image_folder):
             image_files.add(rel_path.replace("\\", "/"))  # Normalize to forward slashes
 
 # --- 2. Regex: match any img/... or ./img/... reference ---
+print(f'(?:\.?\/)?img\/([\w\d()\/.-]*\.(?:{"|".join(image_extensions)}))')
 image_reference_pattern = re.compile(
-    r'(?:\.?\/)?img\/([^\s"\'\)\]\(<>\#\?]+)',
+    rf'(?:\.?\/)?img\/([\w\d()\/.-]*(?:{"|".join(image_extensions)}))',
     re.IGNORECASE
 )
 
@@ -43,6 +44,7 @@ for dirpath, _, filenames in os.walk(markdown_folder):
                     referenced_images.add(clean)  # full path like "icons/logo.png"
 
 # --- 3. Determine which images are unused ---
+print(referenced_images)
 unused_images = image_files - referenced_images
 
 print("Unused images:")
