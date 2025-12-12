@@ -2,6 +2,7 @@ import os
 import re
 import shutil
 
+
 def clean_unused_files(folder_name, allowed_extensions):
     """
     Move unused files from folder_name to 'removed-{folder_name}' based on Markdown references.
@@ -29,13 +30,13 @@ def clean_unused_files(folder_name, allowed_extensions):
     # --- 2. Regex: match any folder_name/... or ./folder_name/... reference ---
     file_reference_pattern = re.compile(
         rf'(?:\.?\/)?{folder_name}\/([\w\d()\/.-]*(?:{"|".join(allowed_extensions)}))',
-        re.IGNORECASE
+        re.IGNORECASE,
     )
 
     referenced_files = set()
     for dirpath, _, filenames in os.walk(markdown_folder):
         for filename in filenames:
-            if filename.endswith(".md"):
+            if filename.endswith(".md") or filename.endswith(".ipynb"):
                 with open(os.path.join(dirpath, filename), "r", encoding="utf-8") as f:
                     content = f.read()
                     matches = file_reference_pattern.findall(content)
@@ -71,7 +72,7 @@ def clean_unused_files(folder_name, allowed_extensions):
 # --- Example usage with existence check ---
 folders_to_clean = {
     "img": {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff", ".pdf"},
-    "vid": {".mp4", ".mkv"}
+    "vid": {".mp4", ".mkv"},
 }
 
 for folder_name, extensions in folders_to_clean.items():
