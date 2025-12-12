@@ -35,7 +35,7 @@ def clean_unused_files(folder_name, allowed_extensions):
     referenced_files = set()
     for dirpath, _, filenames in os.walk(markdown_folder):
         for filename in filenames:
-            if filename.endswith(".md"):
+            if filename.endswith(".md") or filename.endswith(".ipynb"):
                 with open(os.path.join(dirpath, filename), "r", encoding="utf-8") as f:
                     content = f.read()
                     matches = file_reference_pattern.findall(content)
