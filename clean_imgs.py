@@ -29,7 +29,7 @@ def clean_unused_files(folder_name, allowed_extensions):
 
     # --- 2. Regex: match any folder_name/... or ./folder_name/... reference ---
     file_reference_pattern = re.compile(
-        rf'(?:\.?\/)?{folder_name}\/([\w\d()\/.-]*(?:{"|".join(allowed_extensions)}))',
+        rf'(?:\.?\/)?{folder_name}\/([\w\d()\/\s.-]*(?:{"|".join(allowed_extensions)}))',
         re.IGNORECASE,
     )
 
@@ -71,7 +71,7 @@ def clean_unused_files(folder_name, allowed_extensions):
 
 # --- Example usage with existence check ---
 folders_to_clean = {
-    "img": {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff", ".pdf"},
+    "img": {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff", ".pdf", ".wmf"},
     "vid": {".mp4", ".mkv"},
 }
 
