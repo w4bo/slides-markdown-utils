@@ -41,7 +41,7 @@ def clean_unused_files(folder_name, allowed_extensions):
                     content = f.read()
                     matches = file_reference_pattern.findall(content)
                     for match in matches:
-                        clean = match.split("?")[0].split("#")[0]
+                        clean = match.split("?")[0].split("#")[0].replace("%20", " ")
                         referenced_files.add(clean)
 
     # --- 3. Determine unused files ---
@@ -71,7 +71,18 @@ def clean_unused_files(folder_name, allowed_extensions):
 
 # --- Example usage with existence check ---
 folders_to_clean = {
-    "img": {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".tiff", ".pdf", ".wmf"},
+    "img": {
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".gif",
+        ".svg",
+        ".webp",
+        ".bmp",
+        ".tiff",
+        ".pdf",
+        ".wmf",
+    },
     "vid": {".mp4", ".mkv"},
 }
 

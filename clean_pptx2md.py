@@ -54,6 +54,14 @@ def clean_text(text: str) -> str:
 
     # replace (i.e. ) with i.e.,
     text = re.sub(r"\s\(i\.e\.\)", " i.e., ", text)
+
+    # replace %20 with space in image paths
+    # text = re.sub(r"%20", " ", text)
+
+    # replace “ with "
+    text = re.sub(r"“", '"', text)
+    # replace ” with "
+    text = re.sub(r"”", '"', text)
     return text
 
 
