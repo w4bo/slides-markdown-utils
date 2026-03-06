@@ -1,14 +1,14 @@
 services:
   build:
     init: true
-    image: w4bo/python:1.0.4
+    image: w4bo/python:1.0.7
     volumes:
       - ./:/data
     command: bash -c "cd /data && chmod +x ./utils/build.sh && ./utils/build.sh"
 
   publish:
     init: true
-    image: w4bo/quarto-slides:1.0.24
+    image: w4bo/quarto-slides:1.0.27
     hostname: publish
     container_name: publish
     ports:
