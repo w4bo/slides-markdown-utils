@@ -8,7 +8,7 @@ services:
 
   publish:
     init: true
-    image: w4bo/quarto-slides:1.0.29
+    image: w4bo/quarto-slides:1.0.30
     hostname: publish
     container_name: publish
     ports:
