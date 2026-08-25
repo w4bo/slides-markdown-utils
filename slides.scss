@@ -176,7 +176,23 @@ figcaption {
     color: $slides-blue !important;
 }
 
+.reveal .title-slide {
+    text-align: center !important;
+}
+
+.reveal .title-slide .title {
+    margin-bottom: 0.25em;
+}
+
+.reveal .title-slide .subtitle {
+    margin-bottom: 1.1em;
+}
+
 .author {
+    text-align: center !important;
+}
+
+.affiliation {
     text-align: center !important;
 }
 
