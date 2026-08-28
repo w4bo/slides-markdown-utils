@@ -43,7 +43,7 @@ $slides-border: #D7DEE8;
 }
 
 .video-js {
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 strong {
@@ -61,10 +61,12 @@ em {
 }
 
 img {
-    max-height: 350px !important;
+    display: block;
     max-width: 100% !important;
     width: auto !important;
+    max-height: min(65vh, 350px) !important;
     height: auto !important;
+    object-fit: contain;
     box-shadow: none !important;
 }
 
@@ -101,7 +103,7 @@ figcaption {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    max-height: 650px !important
+    max-height: 650px !important;
 }
 
 .reveal table {
@@ -110,8 +112,8 @@ figcaption {
 }
 
 .reveal table th {
-    color: #fff;
-    background-color: $slides-navy;
+    color: $slides-text;
+    background-color: #E8EDF5;
     padding: 0.45em 0.7em;
     border: 0;
 }
