@@ -13,6 +13,7 @@ for FILE in *.html; do
     extension="${filename##*.}"
     filename="${filename%.*}"
 
-    docker run -v $(pwd):/home/user astefanutti/decktape /home/user/$FILE $filename-$date.pdf
+    # docker run -v $(pwd):/home/user astefanutti/decktape /home/user/$FILE $filename-$date.pdf
+    docker run -v $(pwd):/home/user astefanutti/decktape /home/user/$FILE $filename.pdf
     docker cp `docker ps -lq`:slides/$filename-$date.pdf .
 done
