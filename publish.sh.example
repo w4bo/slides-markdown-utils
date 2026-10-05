@@ -1,6 +1,34 @@
 #!/bin/bash
-set -exo
+set -Eeuo pipefail
+
+trap 'echo "Error while publishing slides at line $LINENO" >&2' ERR
+
+run_quarto_render() {
+    local format="$1"
+    local log_file
+    local status
+
+    log_file=$(mktemp)
+    set +e
+    quarto render --to "$format" 2>&1 | tee "$log_file"
+    status=${PIPESTATUS[0]}
+    set -e
+
+    if [[ "$status" -ne 0 ]]; then
+        rm -f "$log_file"
+        return "$status"
+    fi
+
+    if grep -Eq "WARN: Error encountered when rendering files|Traceback \\(most recent call last\\)" "$log_file"; then
+        echo "Quarto reported render errors while building $format" >&2
+        rm -f "$log_file"
+        return 1
+    fi
+
+    rm -f "$log_file"
+}
+
 # quarto preview prova.md --to revealjs --port 6778 --host 0.0.0.0
-quarto render --to revealjs
-quarto render --to pptx
-quarto render --to pdf
+run_quarto_render revealjs
+run_quarto_render pptx
+run_quarto_render pdf
