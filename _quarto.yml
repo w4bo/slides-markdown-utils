@@ -34,5 +34,5 @@ format:
     transition: fade
     chalkboard: true
 
-  pptx:
-    reference-doc: slides.pptx
+  # pptx:
+  #   reference-doc: slides.pptx
