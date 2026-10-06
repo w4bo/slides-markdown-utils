@@ -30,4 +30,4 @@ run_quarto_render() {
 
 # quarto preview prova.md --to revealjs --port 6778 --host 0.0.0.0
 run_quarto_render revealjs
-run_quarto_render pdf
+# run_quarto_render pdf
