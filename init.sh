@@ -20,6 +20,7 @@ ensure_file() {
 }
 
 # Apply to your files
-ensure_file "publish.sh"        "utils/publish.sh.example"
-ensure_file "_quarto.yml"       "utils/_quarto.yml"
+ensure_file "build.sh" "utils/build.sh"
+ensure_file "publish.sh" "utils/publish.sh.example"
+ensure_file "_quarto.yml" "utils/_quarto.yml"
 ensure_file "docker-compose.yml" "utils/docker-compose.yml"
