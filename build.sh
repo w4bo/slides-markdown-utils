@@ -3,6 +3,8 @@ set -Eeuo pipefail
 
 trap 'echo "Error while building notebooks at line $LINENO" >&2' ERR
 
+shopt -s nocasematch
+
 for FILE in *.ipynb; do # "lab-01-dataunderstanding.ipynb" "lab-02-housing.ipynb"
     echo "Processing $FILE file...";
     if [[ "$FILE" == *"lab-00"* ]]; then
